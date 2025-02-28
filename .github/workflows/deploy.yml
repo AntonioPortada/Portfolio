@@ -1,0 +1,35 @@
+name: Deploy Portfolio in GitHub Pages
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '22'
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Build project
+          run: npm run build -- --configuration production --output-path docs --base-href /portfolio/browser/
+
+        - name: Move index.html to docs
+          run: mv docs/browser/index.html docs/index.html
+
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.SECRET_ACTION }}
+            publish_dir: ./docs
+            # This workflow is triggered on push events to the master branch
