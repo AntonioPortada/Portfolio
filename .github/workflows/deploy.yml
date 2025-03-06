@@ -29,4 +29,5 @@ jobs:
         with:
           github_token: ${{ secrets.SECRET_ACTION }}
           publish_dir: ./docs/browser
+          clean: true
           # This workflow is triggered on push events to the master branch
