@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build --configuration production --output-path docs --base-href /portfolio/browser/
+        run: npm run build -- --configuration production --output-path docs --base-href /portfolio/browser/
 
       - name: Move index.html to docs
         run: mv docs/browser/index.html docs/index.html
