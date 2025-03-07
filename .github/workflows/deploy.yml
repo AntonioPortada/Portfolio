@@ -34,7 +34,7 @@ jobs:
           ls -la docs/browser
       
       - name: Move index.html to docs folder
-        run: 
+        run: |
           mv docs/browser/index.html docs/index.html
           ls -la docs
 
