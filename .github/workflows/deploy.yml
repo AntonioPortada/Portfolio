@@ -18,15 +18,25 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          echo "Raiz"
+          ls -la 
+          echo "dist folder"
+          ls -la dist
 
       - name: Build Angular app to prod
-        working-directory: portfolio
-        run: npm run build:prod
+        working-directory: Portfolio
+        run: |
+          echo "before build"
+          ls -la
+          ls -la Portfolio
+          ls -la Portfolio/dist
+          npm run build:prod
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: portfolio/dist/browser
-          branch: prod  
+          folder: Portfolio/dist/browser
+          branch: master
           token: ${{ secrets.SECRET_ACTION }}
