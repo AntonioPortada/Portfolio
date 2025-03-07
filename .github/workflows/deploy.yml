@@ -24,12 +24,11 @@ jobs:
       - name: Build project
         run: npm run build -- --configuration production --output-path docs --base-href /Portfolio/browser/
 
-      - name: Move index.html to docs
-        run: mv docs/browser/index.html docs/index.html
+      
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.SECRET_ACTION }}
-          publish_dir: ./docs
+          publish_dir: ./docs/browser
           # This workflow is triggered on push events to the master branch
