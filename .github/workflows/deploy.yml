@@ -21,8 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build -- --configuration production --output-path docs --base-href /Portfolio/
+      - name: Debug List files before and after build
+        run: |
+          echo "Before build:"
+          ls -la
+          npm run build -- --configuration production --output-path docs --base-href /Portfolio/
+          echo "After build:"
+          ls -la
+          echo "Inside docs folder:"
+          ls -la docs
+      
 
       
 
