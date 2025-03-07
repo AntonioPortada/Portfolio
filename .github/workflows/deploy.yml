@@ -31,12 +31,12 @@ jobs:
           echo "before build"
           ls -la
           ls -la Portfolio
-          ls -la Portfolio/dist
+          ls -la Portfolio/docs
           npm run build:prod
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: Portfolio/dist/browser
+          folder: Portfolio/docs/browser
           branch: master
           token: ${{ secrets.SECRET_ACTION }}
