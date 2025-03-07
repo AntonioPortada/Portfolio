@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build -- --configuration production --output-path docs --base-href ./
+        run: npm run build -- --configuration production --output-path docs --base-href /Portfolio/
 
       
 
