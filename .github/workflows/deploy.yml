@@ -21,24 +21,10 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: |
-          npm install
-          echo "Raiz"
-          ls -la 
-          echo "docs folder"
-          ls -la docs
+        run: npm install
 
-      - name: Build Angular app to prod
-        run: |
-          echo "before build"
-          ls -la
-          ls -la Portfolio
-          ls -la Portfolio/docs
-          npm run build
-          echo "after build"
-          ls -la
-          ls -la Portfolio
-          ls -la Portfolio/docs
+      - name: Deploy Angular app to prod
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         env:
