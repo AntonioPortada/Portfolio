@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_ACTION }}
         run: |
-          npm run ng -- deploy --repo=https://github.com/AntonioPortada/Portfolio.git --name="${{ secrets.USER_NAME }}" --email="${{ secrets.USER_EMAIL }}" --base-href=/Portfolio/
+          npm run ng -- deploy -- repo=https://github.com/AntonioPortada/Portfolio -- name=${{ secrets.USER_NAME }} -- email=${{ secrets.USER_EMAIL }} -- base-href=/Portfolio/
