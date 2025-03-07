@@ -34,7 +34,17 @@ jobs:
           ls -la docs/browser
       
       - name: Move index.html to docs folder
-        run: mv docs/browser/index.html docs/index.html
+        run: 
+          mv docs/browser/index.html docs/index.html
+          ls -la docs
+
+      - name: Debug Check build output
+        run: |
+            echo "Listing contents of the workspace:"
+            ls -la /home/runner/work/Portfolio/Portfolio
+            echo "Listing contents of the docs folder:"
+            ls -la /home/runner/work/Portfolio/Portfolio/docs
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
