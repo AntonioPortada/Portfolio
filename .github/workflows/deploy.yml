@@ -26,7 +26,7 @@ jobs:
           ls -la docs
 
       - name: Build Angular app to prod
-        working-directory: Portfolio
+        working-directory: portfolio
         run: |
           echo "before build"
           ls -la
@@ -41,6 +41,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: Portfolio/docs/browser
+          folder: portfolio/docs/
           branch: master
           token: ${{ secrets.SECRET_ACTION }}
