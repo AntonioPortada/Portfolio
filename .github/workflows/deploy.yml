@@ -5,15 +5,18 @@ on:
     branches:
       - master
 
+  workflow_dispatch:
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -26,21 +29,19 @@ jobs:
           ls -la docs
 
       - name: Build Angular app to prod
-        working-directory: portfolio
         run: |
           echo "before build"
           ls -la
           ls -la Portfolio
           ls -la Portfolio/docs
-          npm run build:prod
+          npm run build
           echo "after build"
           ls -la
           ls -la Portfolio
           ls -la Portfolio/docs
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: portfolio/docs/
-          branch: master
-          token: ${{ secrets.SECRET_ACTION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.SECRET_ACTION }}
+        run: |
+          npm run ng -- deploy --repo=https://github.com/AntonioPortada/Portfolio.git --name="${{ secrets.USER_NAME }}" --email="${{ secrets.USER_EMAIL }}" --base-href=/Portfolio/
