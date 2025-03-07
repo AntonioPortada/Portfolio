@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "Before build:"
           ls -la
-          npm run build -- --configuration production --output-path docs --base-href /Portfolio/
+          npm run build
           echo "After build:"
           ls -la
           echo "Inside docs folder:"
