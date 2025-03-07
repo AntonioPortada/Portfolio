@@ -6,46 +6,27 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
 
-      - name: Debug List files before and after build
-        run: |
-          echo "Before build:"
-          ls -la
-          npm run build
-          echo "After build:"
-          ls -la
-          echo "Inside dist folder:"
-          ls -la dist
-      
-      
-
-      - name: Debug Check build output
-        run: |
-            echo "Listing contents of the workspace:"
-            ls -la /home/runner/work/Portfolio/Portfolio
-            echo "Listing contents of the dist folder:"
-            ls -la /home/runner/work/Portfolio/Portfolio/dist
-            echo "Listing contents of the portfolio folder:"
-            ls -la /home/runner/work/Portfolio/Portfolio/dist/portfolio
-
+      - name: Build Angular app to prod
+        working-directory: portfolio
+        run: npm run build:prod
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.SECRET_ACTION }}
-          publish_dir: ./dist/portfolio
-          # This workflow is triggered on push events to the master branch
+          folder: portfolio/dist/browser
+          branch: prod  
+          token: ${{ secrets.SECRET_ACTION }}
