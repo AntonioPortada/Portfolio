@@ -67,6 +67,8 @@ This project is using the next technologies:
 - [Angular](https://angular.dev) V19.2.0: This is a static page but I am using the best practices for angular development
 - [GitHub Pages](https://pages.github.com): To deploy this app
 - [GitHub Actions](https://github.com/features/actions): To use CI/CD for automatic deploy when I push to my repo
+ - [Secrets and variables](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions): To do not show sensitive data.
+ - CI/CD: To automatic deploy the project making push to my repo
 
 ## Web site
 Link to the web site [link](https://antonioportada.github.io/Portfolio)
