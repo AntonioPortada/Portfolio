@@ -24,6 +24,7 @@ jobs:
       - name: Deploy Angular app to prod
         run: |
           npm run build:prod
+          mv dist/browser/index.html dist/index.html
           ls -la
           ls -la docs
           ls -la dist
@@ -31,6 +32,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4.1.0
         with:
-          build_dir: dist/browser
+          build_dir: dist/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
