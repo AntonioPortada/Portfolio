@@ -30,4 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_ACTION }}
         run: |
-          npx angular-cli-ghpages --repo=https://github.com/AntonioPortada/Portfolio --name=${{ secrets.USER_NAME }} --email=${{ secrets.USER_EMAIL }}
+          npx angular-cli-ghpages --dir=dist --repo=https://github.com/AntonioPortada/Portfolio --name=${{ secrets.USER_NAME }} --email=${{ secrets.USER_EMAIL }} --branch=gh-pages --force
