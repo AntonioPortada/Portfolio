@@ -22,7 +22,11 @@ jobs:
         run: npm install
 
       - name: Deploy Angular app to prod
-        run: npm run build:prod
+        run: |
+          npm run build:prod
+          ls -la
+          ls -la docs
+          ls -la dist
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4.1.0
