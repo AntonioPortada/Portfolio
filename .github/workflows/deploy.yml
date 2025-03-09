@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Deploy Angular app to prod
-        run: npm run build -- --prod --output-path=dist --base-href=/Portfolio/
+        run: npm run build -- --configuraion productio --output-path=dist --base-href=/Portfolio/
 
       - name: Deploy to GitHub Pages
         env:
