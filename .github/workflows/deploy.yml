@@ -5,8 +5,6 @@ on:
     branches:
       - master
 
-  workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,10 +22,11 @@ jobs:
         run: npm install
 
       - name: Deploy Angular app to prod
-        run: npm run build -- --configuration production --output-path=dist --base-href=/Portfolio/
+        run: npm run build:prod
 
       - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4.1.0
+        with:
+          build_dir: dist/portfolio
         env:
-          GITHUB_TOKEN: ${{ secrets.SECRET_ACTION }}
-        run: |
-          npx angular-cli-ghpages --dir=dist --repo=https://github.com/AntonioPortada/Portfolio --name=${{ secrets.USER_NAME }} --email=${{ secrets.USER_EMAIL }} --branch=gh-pages --no-silent
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
