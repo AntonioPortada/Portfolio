@@ -25,9 +25,10 @@ jobs:
         run: |
           npm run build:prod
           mv dist/browser/index.html dist/index.html
-          ls -la
-          ls -la docs
+          echo "list dist"
           ls -la dist
+          echo "list dist/browser"
+          ls -la dist/browser
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4.1.0
