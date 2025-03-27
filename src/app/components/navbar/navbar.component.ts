@@ -16,7 +16,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
 
-  private currentLanguage = 'en';
+  private currentLanguage = 'es';
 
   isMXLenguage = false;
 
@@ -25,16 +25,9 @@ export class NavbarComponent {
 
   }
 
-  public switchLanguage(language: string) {
-    this.translate.use(language);
-  }
-
   public toggleLanguage() {
-    //this.translate.use(this.currentLanguage);
-    this.isMXLenguage = !this.isMXLenguage;
     this.currentLanguage = this.isMXLenguage ? 'es' : 'en';
     this.translate.use(this.currentLanguage);
-    console.log('currentLanguage', this.currentLanguage);
-    console.log('isMXLenguage', this.isMXLenguage);
+    this.isMXLenguage = !this.isMXLenguage;
   }
 }

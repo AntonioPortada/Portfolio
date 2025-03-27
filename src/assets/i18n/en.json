@@ -1,8 +1,13 @@
 {
     "NAV": {
-      "MENU1": "MENU 1",
+      "MENU1": "ABOUT ME",
       "MENU2": "MENU 2",
       "MENU3": "MENU 3",
-      "MENU4": "MENU 4"
+      "MENU4": "CONTACT"
+    },
+    "CONTENT": {
+      "TITLE": "Welcome to my website",
+      "SUBTITLE": "This is a subtitle",
+      "DESCRIPTION": "This is a description"
     }
   }
