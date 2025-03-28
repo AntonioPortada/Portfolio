@@ -5,9 +5,23 @@
       "MENU3": "MENU 3",
       "MENU4": "CONTACT"
     },
-    "CONTENT": {
+    "ABOUT": {
       "TITLE": "Welcome to my website",
-      "SUBTITLE": "This is a subtitle",
-      "DESCRIPTION": "This is a description"
+      "INFO": {
+        "DESCRIPTION": "I'm a passionate software developer who thrives on learning and building. I don’t just explore new technologies—I put them into practice.",
+        "TECH_USE": "Technologies I Use",
+        "USE_STACK" : [
+          "iOS Development (Swift, SwiftUI, Realm, CocoaPods, WKWebView)",
+          "Web Development (Spring Boot, Angular, Thymeleaf, Apache Kafka)",
+          "Cloud & Deployment (Docker, AWS S3, GitHub Pages)"
+        ],
+        "TECH_LEARN": "Technologies I’m Learning & Practicing",
+        "LEARN_STACK" : [
+          "Kotlin Multiplatform (Expanding mobile & cross-platform expertise)",
+          "Advanced Spring Security (Enhancing authentication & authorization)",
+          "Scalable Real-Time Systems (Using Kafka for instant notifications)"
+        ],
+        "FOOTER": "I believe in learning by doing, constantly refining my skills through real-world projects. 🚀"
+      }
     }
   }

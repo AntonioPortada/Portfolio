@@ -1,10 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [TranslateModule, CommonModule],
+  imports: [
+    TranslateModule, 
+    CommonModule, 
+    RouterOutlet,
+    RouterLink
+  ],
   templateUrl: './navbar.component.html',
   styles: `
       .btn-len {

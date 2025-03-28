@@ -19,7 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
     provideTranslateService({
-      
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
